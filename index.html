@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <div class="signup">
+            <h2 >CRIAR USUÁRIO<strong>_</strong></h2>
+            <form action="" method="post">
+                
+                <p>Nome de usuário:<strong>_</strong></p>
+                <input type="text" name="username-signup">
+
+                <p>Email:<strong>_</strong></p>
+                <input type="email" name="email-signup" id="">
+
+                <p>Senha:<strong>_</strong></p>
+                <input type="password" name="password-signup" id="">
+                <p>Sua senha deve conter: </p>
+                <ul>
+                    <li id="digits">Mais de 8 dígitos ✕</li>
+                    <li id="special-characters">Mais de um caractere especial ✓</li>
+                    <li id="sequences">Não pode conter sequências</li>
+                    <li id="not-username">Sua senha não pode conter seu usuário</li>
+                </ul>
+
+                <p>Repita a senha:<strong>_</strong></p>
+                <input type="password" name="two-password-signup" id="">
+
+                <p>Escolha uma cor:</p>
+                <input type="color" name="color-signup" id="">
+
+                <p>Frase motivacional:<strong>_</strong></p>
+                <input type="text" name="motivational phrase">
+
+                <input type="submit" class="signup" id="submit-button" value="Criar conta!">
+            </form>
+        </div>
+
+        <div class="users-page">
+            <h2>Usuários</h2>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+* {
+    font-family: Inconsolata, monospace;
+}
+
+strong {
+    animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+  }
+
+body {
+    background-color: rgb(0, 204, 255);
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+.users-page {
+    background-color: white;
+    width: 80%;
+    border-radius: 10px;
+    margin: 25px;
+}
+
+
+.signup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+
+    background-color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 30%;
+    margin: 25px;
+    border-radius: 10px;
+}
+
+.signup h2 {
+    font-size: 25px;
+    margin: 0;
+}
+
+.signup ul {
+    text-align: left;
+    list-style-type: square;
+    list-style-position: inside;
+}
+
+.signup p{
+    margin: 0px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.signup input{
+    padding: 5px;
+    border-radius: 10px;
+    border-color: rgb(0, 0, 0);
+    border-width: 2px;
+    border-style: solid;
+    box-shadow: 5px 5px 0px black;
+}
+
+#digits {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: red;
+}
+
+#special-characters {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: rgb(1, 192, 1);
+}
+
+.signup form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signup#submit-button{
+    text-align: center;
+    margin-top: 40px;
+    background-color: lime;
+    padding: 20px;
+    color: rgb(0, 0, 0);
+    width: 120px;
+}
