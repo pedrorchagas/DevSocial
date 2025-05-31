@@ -16,10 +16,10 @@
             <form action="" method="post">
                 
                 <p>Nome de usuário:<strong>_</strong></p>
-                <input type="text" name="username-signup">
+                <input type="text" name="username-signup" class="input" id="username-signup">
 
                 <p>Email:<strong>_</strong></p>
-                <input type="email" name="email-signup" id="">
+                <input type="email" name="email-signup" id="email-signup">
 
                 <p>Senha:<strong>_</strong></p>
                 <input type="password" name="password-signup" id="">
@@ -34,8 +34,8 @@
                 <p>Repita a senha:<strong>_</strong></p>
                 <input type="password" name="two-password-signup" id="">
 
-                <p>Escolha uma cor:</p>
-                <input type="color" name="color-signup" id="">
+                <p>Escolha uma cor:<strong>_</strong></p>
+                <input type="color" class="signup" name="color-signup" id="signup-pick-color">
 
                 <p>Frase motivacional:<strong>_</strong></p>
                 <input type="text" name="motivational phrase">
@@ -46,8 +46,16 @@
 
         <div class="users-page">
             <h2>Usuários</h2>
+            <button id="openPopup">Abrir Popup</button>
         </div>
     </main>
+    <div id="popups">
+        <div class="popup-error" id="popup-error">
+            <div class="popup-content" id="popup-content">
+                <h2>Mensagem de erro</h2>
+            </div>
+        </div>
+    </div>
     <footer>
 
     </footer>
