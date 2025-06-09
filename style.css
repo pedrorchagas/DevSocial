@@ -58,6 +58,7 @@ main {
     text-align: left;
     list-style-type: square;
     list-style-position: inside;
+    margin-right: 10px;
 }
 
 .signup p{
@@ -78,7 +79,6 @@ main {
 #digits {
     padding-top: 5px;
     padding-bottom: 5px;
-    color: red;
 }
 
 #special-characters {

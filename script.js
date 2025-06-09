@@ -19,13 +19,11 @@ function verifyString(value = '') {
 
 const popupArea = document.getElementById("popups")
 let popups_id = 0
-function createPopup(content='', posTop=0, posLeft=0) {
+function createPopup(content='') {
     popups_id++
     var popup = {
         id: popups_id,
         content: content,
-        posTop: posTop,
-        posLeft: posLeft,
         visible: false,
         hide: function(){
             if (this.visible) {
@@ -42,12 +40,12 @@ function createPopup(content='', posTop=0, posLeft=0) {
                                         </div>
                                     </div>`
         },
-        show: function() {
+        show: function(posTop=0, posLeft=0) {
             if (!this.visible) {
                 let popup = document.getElementById(`popup-error-${this.id}`)
                 popup.style.display = 'flex'
-                popup.style.left = `${this.posLeft+50}px`
-                popup.style.top = `${this.posTop + 10}px`
+                popup.style.left = `${posLeft+50}px`
+                popup.style.top = `${posTop + 10}px`
                 this.visible = true
             }
 
@@ -60,11 +58,13 @@ function createPopup(content='', posTop=0, posLeft=0) {
     return popup
 }
 
+//ERROS
+const error_blank_space = createPopup("EI! Espaços não são permitidos!!")
+const error_max_characters = createPopup("EI! O máximo de caracteres é 20!!")
 
-//
+
+// INPUT USERNAME
 const inputUsername = document.getElementById("username-signup")
-let error_blank_space = createPopup("EI! Espaços não são permitidos!!", inputUsername.getBoundingClientRect().top, inputUsername.getBoundingClientRect().bottom)
-let error_max_characters = createPopup("EI! O máximo de caracteres é 20!!", inputUsername.getBoundingClientRect().top, inputUsername.getBoundingClientRect().bottom)
 inputUsername.addEventListener("input", (event) => {
     let valorAtual = inputUsername.value
     let hasError = false
@@ -72,7 +72,7 @@ inputUsername.addEventListener("input", (event) => {
     //Verifica se não tem espaços
     if (verifyString(valorAtual)) {
         hasError = true
-        error_blank_space.show()
+        error_blank_space.show(inputUsername.getBoundingClientRect().top, inputUsername.getBoundingClientRect().left)
 
     } else { 
         error_blank_space.hide()
@@ -81,7 +81,7 @@ inputUsername.addEventListener("input", (event) => {
     //verifica o tamanho máximo de caracteres
     if (valorAtual.length > 20) {
         hasError = true
-        error_max_characters.show()
+        error_max_characters.show(inputUsername.getBoundingClientRect().top, inputUsername.getBoundingClientRect().left)
     } else {
         error_max_characters.hide()
     }
@@ -100,17 +100,40 @@ inputUsername.addEventListener("input", (event) => {
 // verifica a entra do email
 const inputEmail = document.getElementById("email-signup")
 inputEmail.addEventListener("input", (event) => {
+    let hasError = false
+    let valorAtual = inputEmail.value
+    console.log(`valor atual: ${valorAtual}`)
 
     if (verifyString(valorAtual) ) {
-        inputUsername.style.backgroundColor = 'rgb(255, 98, 98)'
-        inputUsername.classList.add("shake")
-        popup.style.display = 'flex';
-        popupContent.innerHTML = "<h2>EI! Espaços não são permitidos!! </h2>"
-        popup.style.left = `${inputUsername.getBoundingClientRect().left+50}px`
-        popup.style.top = `${inputUsername.getBoundingClientRect().top + 10}px`
+        hasError = true
+        error_blank_space.show(inputEmail.getBoundingClientRect().top, inputEmail.getBoundingClientRect().left)
     } else {
-        popup.style.display = 'none';
-        inputUsername.style.backgroundColor = 'white'
-        inputUsername.classList.remove("shake")
+        error_blank_space.hide()
+    }
+
+    if (hasError) {
+        inputEmail.style.backgroundColor = 'rgb(255, 98, 98)'
+        inputEmail.classList.add("shake")
+    } else {
+        inputEmail.style.backgroundColor = 'white'
+        inputEmail.classList.remove("shake")
     }
 } )
+
+
+// Verifica a senha
+const inputPassword = document.getElementById("password-signup")
+inputPassword.addEventListener("input", function(event) {
+    console.log(`senha: ${inputPassword.value}`)
+    let valorAtual = inputPassword.value
+
+    let digits = document.getElementById("digits")
+    if (valorAtual.length <= 8) {
+        digits.style.color = 'red'
+    } else {
+        digits.style.color = 'limegreen'
+    }
+
+    
+
+})
